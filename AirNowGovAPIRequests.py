@@ -6,17 +6,17 @@ base_url = 'https://airnowapi.org/aq/observation/zipCode/current/'
 # Read the API key from a file
 with open('apikey.txt', 'r') as file:
     api_key = file.read().strip()
-
-# Define the zip codes to query
-zip_codes = ['89436','96001','78201','99201']
+    
+# Read the zip codes from a file
+with open('zipcodes.txt', 'r') as file:
+    zip_codes = [line.strip() for line in file]
 
 for zip_code in zip_codes:
-    
+
     # Define the parameters for the API request
     params = {
         'format': 'application/json',
         'zipCode': zip_code,
-        'date': '2023-07-17',
         'API_KEY': api_key
     }
 
